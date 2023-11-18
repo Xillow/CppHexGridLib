@@ -17,9 +17,9 @@ void subTest(Hex a, Hex b, Hex c) { std::cout << (((c - b) == a) ? "subTest:Vali
 
 void scaleTest(Hex a, int k, Hex b) { std::cout << (((a * k) == b) ? "subTest:Valid" : "subTest:Invalid") << std::endl; }
 
-void dirTest(Hex a, int k) { std::cout << "DirTest: " << k << ": " << hex_direction(k) << std::endl; }
+void dirTest(int k) { std::cout << "DirTest: " << k << ": " << hex_direction(k) << std::endl; }
 
-void diaDirTest(Hex a, int k) { std::cout << "diaDirTest: " << k << ": " <<hex_diagonal_direction(k) << std::endl; }
+void diaDirTest(int k) { std::cout << "diaDirTest: " << k << ": " <<hex_diagonal_direction(k) << std::endl; }
 
 void lenTest(Hex a, Hex b, Hex c) { std::cout << "lenTest: A:" << hex_length(a) << " B:" << hex_length(b) << " C:" << hex_length(c) << std::endl; }
 
@@ -53,9 +53,9 @@ int main(int argc, char *argv[])
 
 	scaleTest(pointA, 2, pointB);
 
-	for (size_t i = 0; i < 6; i++){	dirTest(origin, i);}
+	for (size_t i = 0; i < 6; i++){	dirTest(i);}
 
-	for (size_t  i =0; i < 6; i++){ diaDirTest(origin,i);}
+	for (size_t  i =0; i < 6; i++){ diaDirTest(i);}
 	
 	lenTest(pointA, pointB, pointC);
 
