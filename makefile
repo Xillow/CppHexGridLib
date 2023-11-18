@@ -1,5 +1,5 @@
 CC	 = g++
-FLAGS	 = -g -c -Wall -Wextra -O3 -I$(INCLUDEPATH)
+CXXFLAGS	 = -g -c -Wall -Wextra -O3 -I$(INCLUDEPATH)
 LDFLAGS = -L$(LIBRARYPATH)
 LFLAGS	 = 
 
@@ -16,19 +16,18 @@ OUT	= HCStests
 
 
 all: lib test1
-	$(CC) -g $(OBJS) -o $(BINARYPATH)/$(OUT) $(LFLAGS)
 
 lib: $(OBJECTPATH)/HCS.o
 	ar rcs $(LIBRARYPATH)/HCS.lib $(OBJECTPATH)/HCS.o
 
 test1: $(OBJECTPATH)/HCStests.o
-	$(CC) $(FLAGS) $(LDFLAGS) ./Tests/HCStests.cpp -l$(LIBRARYPATH)/HCS.lib -o $(BINARYPATH)/$(OUT)
+	$(CC) -g -I$(INCLUDEPATH) $(LDFLAGS) ./Tests/HCStests.cpp $(LIBRARYPATH)/HCS.lib -o $(BINARYPATH)/$(OUT)
 
 $(OBJECTPATH)/HCS.o: $(SOURCEPATH)/HCS.cpp $(INCLUDEPATH)/HCS.h
-	$(CC) $(FLAGS) $(SOURCEPATH)/HCS.cpp -o $(OBJECTPATH)/HCS.o
+	$(CC) $(CXXFLAGS) $(SOURCEPATH)/HCS.cpp -o $(OBJECTPATH)/HCS.o
 
 $(OBJECTPATH)/HCStests.o: ./Tests/HCStests.cpp $(INCLUDEPATH)/HCS.h
-	$(CC) $(FLAGS) ./Tests/HCStests.cpp -o $(OBJECTPATH)/HCStests.o
+	$(CC) $(CXXFLAGS) ./Tests/HCStests.cpp -o $(OBJECTPATH)/HCStests.o
 
 cleanLin:
 	rm -f $(OBJS) $(BINARYPATH)/$(OUT)
