@@ -102,7 +102,7 @@ bool inRange(Hex origin, Hex target, int range);
 /// @param origin
 /// @param target
 /// @return true if it's on the axis path false if it is off the axis path
-bool inPath(Hex origin, Hex targer);
+bool inPath(Hex origin, Hex target);
 
 //ADD: a function to create default map shapes
 //ADD: a pathfinding algorithm
