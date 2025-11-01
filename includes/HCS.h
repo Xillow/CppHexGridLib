@@ -6,7 +6,7 @@
 The Hex Maps will be stored in arrays using a method of indexing
 that will minimize array size while keeping shape of the array
 
-as a result we will store it using Axial coordinatres,
+as a result we will store it using Axial coordinates,
 but translate it to cube for algorithms
 */
 
@@ -17,9 +17,6 @@ but translate it to cube for algorithms
 #include <cmath>
 #include <vector>
 #include <iostream>
-
-
-//FlatTop Orientation
 
 
 class Hex
